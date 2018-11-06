@@ -1,0 +1,93 @@
+type User {
+  uid: ID
+  email: String!
+  full_name: String
+}
+
+type Organization {
+  uid: ID
+  title: String!
+  description: String
+  website: String
+  twitter: String
+  contact_person: String
+  active: Boolean
+  slug: String
+  image: String
+}
+
+type Presentation {
+  uid: ID
+  title: String!
+  description: String
+  video_id: String
+  video_source: String
+  view_count: Int
+  published_at: String
+  thumbnail1: String
+  thumbnail2: String
+  thumbnail3: String
+  published: Boolean
+  organizations: [Organization]
+  presenters: [Presenter]
+  links: [PresentationLink]
+}
+
+type PresentationLink {
+  uid: ID
+  title: String
+  url: String
+  active: Boolean
+}
+
+type Presenter {
+  user: User
+  byline: String
+  biography: String
+  twitter: String
+  github: String
+  website: String
+  avatar_url: String
+  active: Boolean
+  presentations: [Presentation]
+}
+
+enum PlaylistCategory {
+  CONFERENCE
+  MEETUP
+  TUTORIAL
+  TRAINING
+  SHOWS
+  CONFERENCE_TRACK
+}
+
+type Playlist {
+  category: PlaylistCategory
+  name: String
+  description: String
+  website: String
+  publish_date: String
+  playlist_id: String
+  playlist_source: String
+  thumbnail: String
+  active: Boolean
+  presentations: [Presentation]
+}
+
+type Event {
+  uid: ID
+  title: String
+  description: String
+  event_datetime: String
+  venue: String
+  source: String
+  source_uid: String
+  rsvp_count: Int
+  location_lat: String
+  location_long: String
+  is_recorded: Boolean
+  is_scheduled_for_recording: Boolean
+  active: Boolean
+  organizations: [Organization]
+  presentations: [Presentation]
+}

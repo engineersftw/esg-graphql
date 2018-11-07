@@ -96,3 +96,83 @@ type Event {
   organizations: [Organization]
   presentations: [Presentation]
 }
+
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+}
+
+type OrganizationEdge {
+  cursor: String!
+  node: Organization
+}
+
+type OrganizationConnection {
+  edges: [OrganizationEdge]
+  nodes: [Organization]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type PresenterEdge {
+  cursor: String!
+  node: Presenter
+}
+
+type PresenterConnection {
+  edges: [PresenterEdge]
+  nodes: [Presenter]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type PresentationEdge {
+  cursor: String!
+  node: Presentation
+}
+
+type PresentationConnection {
+  edges: [PresentationEdge]
+  nodes: [Presentation]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type PlaylistEdge {
+  cursor: String!
+  node: Playlist
+}
+
+type PlaylistConnection {
+  edges: [PlaylistEdge]
+  nodes: [Playlist]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type EventEdge {
+  cursor: String!
+  node: Event
+}
+
+type EventConnection {
+  edges: [EventEdge]
+  nodes: [Event]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type Query {
+  organization(slug: String!): Organization
+  organizations(first: Int, after: String, last: Int, before: String): OrganizationConnection
+  presenter(slug: String!): Presenter
+  presenters(first: Int, after: String, last: Int, before: String): PresenterConnection
+  presentation(slug: String!): Presentation
+  presentations(first: Int, after: String, last: Int, before: String): PresentationConnection
+  playList(slug: String!): Playlist
+  playLists(first: Int, after: String, last: Int, before: String, category: PlaylistCategory): PlaylistConnection
+  event(uid: ID!): Event
+  events(first: Int, after: String, last: Int, before: String): EventConnection
+}

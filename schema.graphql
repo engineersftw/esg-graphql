@@ -25,7 +25,7 @@ type Presentation {
   video_id: String
   video_source: String
   view_count: Int
-  published_at: String
+  published_at: DateTime
   thumbnail1: String
   thumbnail2: String
   thumbnail3: String
@@ -72,7 +72,7 @@ type Playlist {
   name: String
   description: String
   website: String
-  publish_date: String
+  publish_at: DateTime
   playlist_id: String
   playlist_source: String
   thumbnail: String
@@ -84,7 +84,7 @@ type Event {
   uid: ID
   title: String
   description: String
-  event_datetime: String
+  event_datetime: DateTime
   venue: String
   source: String
   source_uid: String
@@ -97,6 +97,8 @@ type Event {
   organizations: [Organization]
   presentations(first: Int, after: String, last: Int, before: String): PresentationConnection
 }
+
+scalar DateTime
 
 type PageInfo {
   endCursor: String

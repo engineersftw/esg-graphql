@@ -169,13 +169,13 @@ type EventConnection {
 
 type Query {
   organization(slug: String!): Organization
-  organizations(first: Int, after: String, last: Int, before: String): OrganizationConnection
+  organizations(first: Int, after: String, last: Int, before: String, search: String): OrganizationConnection
   presenter(slug: String!): Presenter
-  presenters(first: Int, after: String, last: Int, before: String): PresenterConnection
+  presenters(first: Int, after: String, last: Int, before: String, search: String): PresenterConnection
   presentation(slug: String!): Presentation
-  presentations(first: Int, after: String, last: Int, before: String): PresentationConnection
+  presentations(first: Int, after: String, last: Int, before: String, search: String): PresentationConnection
   playList(slug: String!): Playlist
-  playLists(first: Int, after: String, last: Int, before: String, category: PlaylistCategory): PlaylistConnection
+  playLists(first: Int, after: String, last: Int, before: String, category: PlaylistCategory, search: String): PlaylistConnection
   event(uid: ID!): Event
-  events(first: Int, after: String, last: Int, before: String): EventConnection
+  events(first: Int, after: String, last: Int, before: String, search: String): EventConnection
 }

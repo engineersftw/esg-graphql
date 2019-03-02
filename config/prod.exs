@@ -3,7 +3,6 @@ use Mix.Config
 # Server configuration
 # ~~~~~~
 config :esg_graphql, EsgGraphqlWeb.Endpoint,
-  cache_static_manifest: "priv/static/cache_manifest.json",
   http: [
     :inet6,
     port: System.get_env("APP_PORT") || 4000

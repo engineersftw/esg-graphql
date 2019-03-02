@@ -4,12 +4,13 @@ defmodule EsgGraphql.MixProject do
   def project do
     [
       app: :esg_graphql,
-      version: "0.1.0",
+      version: File.read!("VERSION.txt"),
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: aliases()
     ]
   end
 
@@ -40,5 +41,23 @@ defmodule EsgGraphql.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"}
     ]
+  end
+
+  # Mix aliases
+  # ~~~~~~
+  # Handy shortcuts for common tasks
+  defp aliases do
+    [
+      clean: ["clean", &phx_clean/1],
+      install: ["deps.get"],
+      start: ["phx.server"],
+    ]
+  end
+
+  # Clean compiled Elixir code and processed static assets
+  defp phx_clean(_) do
+    [
+      "rm -rf _build"
+    ] |> Enum.each(&Mix.shell.cmd/1)
   end
 end

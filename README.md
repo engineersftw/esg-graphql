@@ -12,10 +12,8 @@ Prerequisites:
 
 To start your Phoenix server:
 
-  * Install dependencies with `mix deps.get`
-  * Start Phoenix endpoint with `mix phx.server`
-
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+  * Run `mix install` to install dependencies
+  * Run `mix start` to start the server on [`localhost:4000`](http://localhost:4000)
 
 
 [Elixir]: https://elixir-lang.org/

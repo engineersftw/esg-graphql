@@ -33,6 +33,11 @@ WORKDIR     /app
 COPY        --from=builder /build/dist/esg_graphql/ ./
 RUN         chmod +x bin/esg_graphql
 
+# Set default environment variables
+ENV         APP_HOST=graphql.engineers.sg \
+            APP_PORT=4000 \
+            APP_SECRET=XyJgAdDU8qYoNqELNzJkD0C4ejA0jpjUuwDR+uCkFkYQdHdZ/Sx2G9tMYLqit1Q9
+
 EXPOSE      4000
 ENTRYPOINT  ["bin/esg_graphql"]
 CMD         ["foreground"]

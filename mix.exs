@@ -37,6 +37,7 @@ defmodule EsgGraphql.MixProject do
     [
       {:absinthe, "~> 1.4"},
       {:absinthe_plug, "~> 1.4"},
+      {:distillery, "~> 2.0"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:phoenix, "~> 1.4.1"},
@@ -53,6 +54,7 @@ defmodule EsgGraphql.MixProject do
     [
       clean: ["clean", &phx_clean/1],
       install: ["deps.get"],
+      package: ["compile", "release --env=prod"],
       start: ["phx.server"],
     ]
   end

@@ -5,7 +5,15 @@ defmodule EsgGraphqlWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", EsgGraphqlWeb do
+  scope "/" do
     pipe_through :api
+
+    forward "/graph", Absinthe.Plug,
+      schema: EsgGraphqlWeb.Schema
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: EsgGraphqlWeb.Schema,
+      interface: :simple,
+      context: %{pubsub: EsqGraphqlWeb.Endpoint}
   end
 end
